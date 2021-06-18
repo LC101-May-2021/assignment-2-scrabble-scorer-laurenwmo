@@ -1,4 +1,6 @@
-// inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
+// https://github.com/LC101-May-2021/assignment-2-scrabble-scorer-laurenwmo
+
+//inspired by https://exercism.io/tracks/javascript/exercises/etl/solutions/91f99a3cca9548cebe5975d7ebca6a85
 
 const input = require("readline-sync");
 
@@ -10,6 +12,11 @@ const oldPointStructure = {
   5: ['K'],
   8: ['J', 'X'],
   10: ['Q', 'Z']
+};
+
+const vowelBonusStructure = {
+  1: ['B','C','D','F','G','H','J','K','L','M','N','P','Q','R','S','T','V','W','X','Y','Z'],
+  3: ['A','E','I','O','U']
 };
 
 function oldScrabbleScorer(word) {
@@ -24,27 +31,69 @@ function oldScrabbleScorer(word) {
 			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
 		 }
  
-	  }
-	}
+	  }	}
 	return letterPoints;
  }
 
 // your job is to finish writing these functions and variables that we've named //
 // don't change the names or your program won't work as expected. //
 
+let word = "";
 function initialPrompt() {
-   console.log("Let's play some scrabble! Enter a word:");
+   word = input.question("Let's play some scrabble! Enter a word:");
+   console.log(oldScrabbleScorer(word))
 };
 
-let simpleScore;
+function simpleScore(word) {
+  
+   word = input.question("Let's play some scrabble! Enter a word (simple score):");
+   word = word.toUpperCase();
+   pointValue = word.length;
+   letterPoints = "";
+   for (i = 0; i < word.length; i++) {
+     letterPoints += `Points for '${word}': ${pointValue}\n`
+     return letterPoints
+   }
+   
+}
+  
+ console.log(simpleScore())
 
-let vowelBonusScore;
+
+
+word = "";
+function vowelBonusScore(word) {
+  word = input.question("Let's play some scrabble! Enter a word (bonus):");
+	word = word.toUpperCase();
+	let letterPoints = "";
+ 
+	for (let i = 0; i < word.length; i++) {
+ 
+	  for (const pointValue in vowelBonusStructure) {
+ 
+		 if (vowelBonusStructure[pointValue].includes(word[i])) {
+			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+		 }
+ 
+	  }	}
+	return letterPoints;
+ }
+
+
+
+console.log(vowelBonusScore())
+
+let candidateA = {
+  'name':'Simple Score',
+  'description': 'Each letter is worth 1 point.',
+  'score function': simpleScore
+};
 
 let scrabbleScore;
 
 const scoringAlgorithms = [];
 
-function scorerPrompt() {}
+function scorerPrompt() {};
 
 function transform() {};
 
