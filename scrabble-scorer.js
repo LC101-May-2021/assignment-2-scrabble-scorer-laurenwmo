@@ -54,6 +54,7 @@ function simpleScore(word) {
    for (i = 0; i < word.length; i++) {
      letterPoints += `Points for '${word}': ${pointValue}\n`
      return letterPoints
+
    }
    
 }
@@ -66,17 +67,20 @@ word = "";
 function vowelBonusScore(word) {
   //word = input.question("Let's play some scrabble! Enter a word (bonus):");
 	word = word.toUpperCase();
-	let letterPoints = "";
+	let letterPoints = 0;
  
 	for (let i = 0; i < word.length; i++) {
  
 	  for (const pointValue in vowelBonusStructure) {
- 
+      
 		 if (vowelBonusStructure[pointValue].includes(word[i])) {
-			letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+       
+			console.log(`Points for '${word[i]}': ${pointValue}\n`);
+      letterPoints += +pointValue;
 		 }
  
 	  }	}
+    
 	return letterPoints;
  }
 
