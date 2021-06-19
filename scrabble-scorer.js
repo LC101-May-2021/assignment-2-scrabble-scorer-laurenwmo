@@ -49,10 +49,11 @@ function simpleScore(word) {
    //word = input.question("Let's play some scrabble! Enter a word (simple score):");
    word = word.toUpperCase();
    pointValue = word.length;
-   letterPoints = "";
+   let letterPoints = 0;
 
    for (i = 0; i < word.length; i++) {
-     letterPoints += `Points for '${word}': ${pointValue}\n`
+     console.log(`Points for '${word}': ${pointValue}\n`);
+     letterPoints += +pointValue;
      return letterPoints
 
    }
