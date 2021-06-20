@@ -196,9 +196,7 @@ function transform(obj) {
 
 
 
-let newPointStructure = transform();
-
-
+newPointStructure = transform();
 
 
 
