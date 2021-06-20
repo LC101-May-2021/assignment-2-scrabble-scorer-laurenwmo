@@ -183,7 +183,7 @@ function transform(obj) {
     };
     for (pointValue in oldPointStructure) {
         for (character of oldPointStructure[pointValue]) {
-            newPointStructure[character] = pointValue;
+            newPointStructure[character] += pointValue;
         }
     }
     return newPointStructure;
