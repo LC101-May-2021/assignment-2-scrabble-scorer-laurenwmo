@@ -112,7 +112,9 @@ function vowelBonusScore(word) {
 
 
 
-let scrabbleScore = function() {};
+function scrabbleScore(word) {
+  let newPointStructure = transform(oldPointStructure);
+}
 
 
 let simpleScoreObj = {
@@ -154,8 +156,8 @@ function scorerPrompt() {
 
 function transform(obj) {
     let newPointStructure = {};
-    for (pointValue in oldPointStructure) {
-        for (character of oldPointStructure[pointValue]) {
+    for (pointValue in obj) {
+        for (character of obj[pointValue]) {
             newPointStructure[character] = +pointValue;
         }
     }
@@ -169,7 +171,7 @@ function transform(obj) {
 
 
 
-newPointStructure = transform();
+
 
 /*a:1,
       b:3,
