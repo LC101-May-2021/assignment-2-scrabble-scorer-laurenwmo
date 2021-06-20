@@ -41,7 +41,7 @@ function oldScrabbleScorer(word) {
 let word = "";
 function initialPrompt() {
    word = input.question("Let's play some scrabble! Enter a word:");
-   //console.log(oldScrabbleScorer(word))
+  
 };
 
 
@@ -155,8 +155,12 @@ console.log(scoringAlgorithms)
 
 function scorerPrompt() {
   let scoreOptions = input.question("What scoring algorithm would you like to use? \n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Uses scrabble point system\nEnter 0, 1, or 2:");
+  if (scoreOptions !== Number) {
+    console.log("That is not a number.")
+    return scoringAlgorithms[+scoreOptions]
+  }
   return scoringAlgorithms[+scoreOptions]
-
+  
 };
 
 
