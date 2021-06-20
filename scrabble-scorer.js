@@ -112,7 +112,7 @@ function vowelBonusScore(word) {
 
 
 
-let scrabbleScore;
+let scrabbleScore = transform();
 
 
 let simpleScoreObj = {
