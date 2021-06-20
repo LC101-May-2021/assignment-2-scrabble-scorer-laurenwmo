@@ -110,11 +110,19 @@ function vowelBonusScore(word) {
  }
 
 
-
+let newPointStructure = transform(oldPointStructure)
 
 function scrabbleScore(word) {
-  let newPointStructure = transform(oldPointStructure);
-}
+  word = word.toUpperCase();
+  let letterPoints = 0;
+
+  for (const character of word) {
+
+    letterPoints += newPointStructure[character]
+
+  }
+  return letterPoints
+} 
 
 
 let simpleScoreObj = {
@@ -132,7 +140,7 @@ let vowelBonusScoreObj = {
 let scrabbleScoreObj = {
   name: "Scrabble",
   description: "The traditional scoring algorithm.",
-  scoringFunction: oldScrabbleScorer
+  scoringFunction: scrabbleScore
 }
 
 const scoringAlgorithms = [simpleScoreObj, vowelBonusScoreObj, scrabbleScoreObj];
@@ -143,13 +151,7 @@ console.log(scoringAlgorithms)
 
 function scorerPrompt() {
   let scoreOptions = input.question("What scoring algorithm would you like to use? \n\n0 - Simple: One point per character\n1 - Vowel Bonus: Vowels are worth 3 points\n2 - Scrabble: Uses scrabble point system\nEnter 0, 1, or 2:");
-  if (scoreOptions === "0") {
-    console.log(simpleScore(word))
-  } else if (scoreOptions === "1") {
-    console.log(vowelBonusScore(word))
-  } else if (scoreOptions === "2") {
-    console.log(oldScrabbleScorer(word))
-  }
+  return scoringAlgorithms[+scoreOptions]
 
 };
 
@@ -167,6 +169,7 @@ function transform(obj) {
 //To access the letter arrays within oldPointStructure, use bracket notation (oldPointStructure['key']).
 
 //To access a particular element within a letter array, add a second set of brackets (oldPointStructure['key'][index]), or assign the array to a variable and use variableName[index].
+
 
 
 
@@ -202,7 +205,8 @@ function transform(obj) {
 
 function runProgram() {
    initialPrompt();
-   scorerPrompt();
+   let scoringObj = scorerPrompt();
+   scoringObj.scoringFunction(word)
 }
 
 // Don't write any code below this line //
