@@ -44,21 +44,45 @@ function initialPrompt() {
    //console.log(oldScrabbleScorer(word))
 };
 
+
 function simpleScore(word) {
   
    //word = input.question("Let's play some scrabble! Enter a word (simple score):");
+let letterPoints = 0;
+  
    word = word.toUpperCase();
-   pointValue = word.length;
-   let letterPoints = 0;
-
+   
+   if (word.length === 0) {
+     pointValue = 0;
+     return letterPoints;
+   } else if (word.length > 0) {
+ pointValue = word.length;
+   
    for (i = 0; i < word.length; i++) {
+    
      console.log(`Points for '${word}': ${pointValue}\n`);
      letterPoints += +pointValue;
-     return letterPoints
 
+     return letterPoints
+    
+   }
+   }
    }
    
-}
+   /*pointValue = word.length;
+   
+   for (i = 0; i < word.length; i++) {
+    
+     console.log(`Points for '${word}': ${pointValue}\n`);
+     letterPoints += +pointValue;
+
+     return letterPoints
+    
+   }
+   }*/
+
+
+
   
 
 
