@@ -111,17 +111,20 @@ function vowelBonusScore(word) {
 
 
 let newPointStructure = transform(oldPointStructure)
-console.log(newPointStructure)
+
 
 function scrabbleScore(word) {
-  word = word.toUpperCase();
+  word = word.toLowerCase();
   let letterPoints = 0;
 
   for (const character of word) {
-
-    letterPoints += newPointStructure[character]
-
+    let pointValue = newPointStructure[character];
+    console.log(`Points for '${character}': ${pointValue}\n`);
+   
+    letterPoints += pointValue;
+    
   }
+  console.log(letterPoints)
   return letterPoints
 } 
 
@@ -176,7 +179,7 @@ function transform(obj) {
 function runProgram() {
    initialPrompt();
    let scoringObj = scorerPrompt();
-   scoringObj.scoringFunction(word)
+   let score = scoringObj.scoringFunction(word)
 }
 
 // Don't write any code below this line //
