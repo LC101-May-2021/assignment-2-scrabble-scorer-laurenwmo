@@ -155,15 +155,35 @@ function scorerPrompt() {
 
 
 
-
 function transform(obj) {
-    var newPointStructure = {1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
-  2: ['D', 'G'],
-  3: ['B', 'C', 'M', 'P'],
-  4: ['F', 'H', 'V', 'W', 'Y'],
-  5: ['K'],
-  8: ['J', 'X'],
-  10: ['Q', 'Z']};
+    var newPointStructure = {
+      a: [1],
+      b: [3],
+      c: [3],
+      d: [2],
+      e: [1],
+      f: [4],
+      g: [2],
+      h:[4],
+      i: [1],
+      j:[8],
+      k:[5],
+      l: [1],
+      m:[3],
+      n: [1],
+      o: [1],
+      p:[3],
+      q:[10],
+      r: [1],
+      s: [1],
+      t: [1],
+      u: [1],
+      v:[4],
+      w:[4],
+      x:[8],
+      y:[4],
+      z:[10],
+    };
     for (pointValue in oldPointStructure) {
         for (character of oldPointStructure[pointValue]) {
             newPointStructure[character] = pointValue;
@@ -172,14 +192,14 @@ function transform(obj) {
     return newPointStructure;
 }
 
+//To access the letter arrays within oldPointStructure, use bracket notation (oldPointStructure['key']).
+
+//To access a particular element within a letter array, add a second set of brackets (oldPointStructure['key'][index]), or assign the array to a variable and use variableName[index].
 
 
 
 
-
-let newPointStructure = {
-};
-
+let newPointStructure = transform();
 
 
 
