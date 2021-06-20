@@ -157,7 +157,13 @@ function scorerPrompt() {
 
 
 function transform(obj) {
-    var newPointStructure = {};
+    var newPointStructure = {1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
+  2: ['D', 'G'],
+  3: ['B', 'C', 'M', 'P'],
+  4: ['F', 'H', 'V', 'W', 'Y'],
+  5: ['K'],
+  8: ['J', 'X'],
+  10: ['Q', 'Z']};
     for (pointValue in oldPointStructure) {
         for (character of oldPointStructure[pointValue]) {
             newPointStructure[character] = pointValue;
@@ -172,13 +178,6 @@ function transform(obj) {
 
 
 let newPointStructure = {
-  1: ['A', 'E', 'I', 'O', 'U', 'L', 'N', 'R', 'S', 'T'],
-  2: ['D', 'G'],
-  3: ['B', 'C', 'M', 'P'],
-  4: ['F', 'H', 'V', 'W', 'Y'],
-  5: ['K'],
-  8: ['J', 'X'],
-  10: ['Q', 'Z']
 };
 
 
